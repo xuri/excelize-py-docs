@@ -1,0 +1,38 @@
+{
+    "title": "Excelize for Python Document",
+    "author": "xuri",
+    "language": "en",
+    "plugins": [
+        "sharing",
+        "-lunr",
+        "-search",
+        "search-plus",
+        "language-picker",
+        "favicon"
+    ],
+    "pluginsConfig": {
+        "favicon": {
+            "shortcut": "https://xuri.me/excelize-py/images/favicon.ico",
+            "bookmark": "https://xuri.me/excelize-py/images/favicon.ico",
+            "appleTouch": "https://xuri.me/excelize-py/images/logo_trans_300x300.png",
+            "appleTouchMore": {
+                "120x120": "https://xuri.me/excelize-py/images/apple-touch-icon-120x120.png",
+                "180x180": "https://xuri.me/excelize-py/images/apple-touch-icon-180x180.png"
+            }
+        }
+    },
+    "styles": {
+        "website": "styles/website.css"
+    },
+    "pdf": {
+        "fontSize": 10,
+        "pageNumbers": false,
+        "paperSize": "a4",
+        "margin": {
+            "right": 0,
+            "left": 0,
+            "top": 0,
+            "bottom": 0
+        }
+    }
+}
