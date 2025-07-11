@@ -333,6 +333,14 @@ class SheetProtectionOptions:
     sort: bool = False
 ```
 
+## Unprotect Sheet {#UnprotectSheet}
+
+```python
+def unprotect_sheet(sheet: str, *password: str) -> None
+```
+
+Remove protection for a sheet, specified the second optional password parameter to remove sheet protection with password verification.
+
 ## Remove column {#RemoveCol}
 
 ```python

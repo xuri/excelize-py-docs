@@ -9,6 +9,7 @@ class Options:
     raw_cell_value: bool = False
     unzip_size_limit: int = 0
     unzip_xml_size_limit: int = 0
+    tmp_dir: str = ""
     short_date_pattern: str = ""
     long_date_pattern: str = ""
     long_time_pattern: str = ""
@@ -24,6 +25,8 @@ class Options:
 `unzip_size_limit` specifies the unzip size limit in bytes on open the spreadsheet, this value should be greater than or equal to `unzip_xml_size_limit`, the default size limit is 16GB.
 
 `unzip_xml_size_limit` specifies the memory limit on unzipping worksheet and shared string table in bytes, worksheet XML will be extracted to system temporary directory when the file size is over this value, this value should be less than or equal to `unzip_size_limit`, the default value is 16MB.
+
+`tmp_dir` specifies the temporary directory for creating temporary files, if the value is empty, the system default temporary directory will be used.
 
 `short_date_pattern` specifies the short date number format code. In the spreadsheet applications, date formats display date and time serial numbers as date values. Date formats that begin with an asterisk (\*) respond to changes in regional date and time settings that are specified for the operating system. Formats without an asterisk are not affected by operating system settings. The `short_date_pattern` used for specifies apply date formats that begin with an asterisk.
 
