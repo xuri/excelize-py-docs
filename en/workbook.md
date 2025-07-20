@@ -198,6 +198,21 @@ For example, hide `Sheet1`:
 f.set_sheet_visible("Sheet1", False)
 ```
 
+## Get worksheet visible {#GetSheetVisible}
+
+```python
+def get_sheet_visible(sheet: str) -> bool
+```
+
+Get visible state of the sheet by given sheet name. For example, get the visible state of `Sheet1`:
+
+```python
+try:
+    visible = f.get_sheet_visible("Sheet1")
+except RuntimeError as err:
+    print(err)
+```
+
 ## Set worksheet properties {#SetSheetProps}
 
 ```python
@@ -827,3 +842,11 @@ class WorkbookProtectionOptions:
     lock_structure: bool = False
     lock_windows: bool = False
 ```
+
+## Unprotect workbook {#UnprotectWorkbook}
+
+```python
+def unprotect_workbook(*password: str) -> None
+```
+
+Remove protection for workbook, specified the optional password parameter to remove workbook protection with password verification.
