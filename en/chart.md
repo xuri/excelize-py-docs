@@ -78,6 +78,7 @@ name                | Legend item (series), displayed in the chart legend and fo
 categories          | Horizontal (category) axis label. The `categories` parameter is optional in most chart types, the default is a contiguous sequence of the form `1..n`.
 values              | The chart data area, which is the most important parameter in `series`, is also the only required parameter when creating a chart. This option links the chart to the worksheet data it displays.
 fill                | This sets the format for the data series fill.
+legend              | This set the font of legend text for a data series. The `legend` property is optional.
 line                | This sets the line format of the line chart. The `line` property is optional and if it isn't supplied it will default style. The options that can be set is `width`. The range of `width` is 0.25pt - 999pt. If the value of width is outside the range, the default width of the line is 2pt.
 marker              | This sets the marker of the line chart and scatter chart. The range of the optional field `size` is 2-72 (default value is `5`). The enumeration value of optional field `symbol` are (default value is `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` and `auto`.
 data_label_position | This sets the position of the chart series data label.
@@ -88,6 +89,7 @@ Parameter|Type|Explanation
 ---|---|---
 position        | `str`  | The position of the chart legend
 show_legend_key | `bool` | Set the legend keys shall be shown in data labels
+font            | `Font` | Set the font properties of the chart legend text. The properties that can be set are the same as the font object that is used for cell formatting. The font family, size, color, bold, italic, underline, and strike properties can be set
 
 Set the `position` of the chart legend. The default legend position is `right`. This parameter only takes effect when `none` is `False`. The available positions are:
 
@@ -100,7 +102,7 @@ left      | On left
 right     | On right
 top_right | On top right
 
-The `ShowLegendKey` parameter set the legend keys shall be shown in data labels. The default value is `false`.
+The `show_legend_key` parameter set the legend keys shall be shown in data labels. The default value is `False`.
 
 The chart title is set by selecting the `name` parameter of the `title` object, and the title will be displayed above the chart. The parameter `name` supports the use of formula representations, such as `Sheet1!$A$1`, if you do not specify an icon title, the default value is null.
 
@@ -111,6 +113,8 @@ Parameter|Explanation
 gap  | Space
 span | Connect data points with straight lines
 zero | Zero value
+
+Set chart legend for all data series by `legend` property. The `legend` property is optional.
 
 Set the bubble size in all data series for the bubble chart or 3D bubble chart by `bubble_sizes` property. The `bubble_sizes` property is optional. The default width is `100`, and the value should be great than 0 and less or equal than 300.
 
@@ -124,14 +128,16 @@ Set the position of the chart plot area by plot area. The properties that can be
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-second_plot_values | `int`         | `0`     | Specifies the values in second plot for the `PieOfPie` and `BarOfPie` chart.
-show_bubble_size   | `bool`        | `False` | Specifies the bubble size shall be shown in a data label.
-show_cat_name      | `bool`        | `True`  | Category name.
-show_leader_lines  | `bool`        | `False` | Specifies that the category name shall be shown in the data label.
-show_percent       | `bool`        | `False` | Specifies that the percentage shall be shown in a data label.
-show_ser_name      | `bool`        | `False` | Specifies that the series name shall be shown in a data label.
-show_val           | `bool`        | `False` | Specifies that the value shall be shown in a data label.
-num_fmt            | `ChartNumFmt` | N/A     | Specifies that if linked to source and set custom number format code for data labels. The `num_fmt` property is optional. The default format code is `General`.
+second_plot_values   | `int`         | `0`     | Specifies the values in second plot for the `PieOfPie` and `BarOfPie` chart.
+show_bubble_size     | `bool`        | `False` | Specifies the bubble size shall be shown in a data label.
+show_cat_name        | `bool`        | `True`  | Specifies that the category name shall be shown in the data label. The `show_cat_name` property is optional.
+show_data_table      | `bool`        | `False` | Used for add data table under chart, depending on the chart type, only available for area, bar, column and line series type charts.
+show_data_table_keys | `bool`        | `False` | Used for add legend key in data table, only works on `show_data_table` is enabled. The `show_data_table_keys` property is optional.
+show_leader_lines    | `bool`        | `False` | Specifies that the category name shall be shown in the data label.
+show_percent         | `bool`        | `False` | Specifies that the percentage shall be shown in a data label.
+show_ser_name        | `bool`        | `False` | Specifies that the series name shall be shown in a data label.
+show_val             | `bool`        | `False` | Specifies that the value shall be shown in a data label.
+num_fmt              | `ChartNumFmt` | N/A     | Specifies that if linked to source and set custom number format code for data labels. The `num_fmt` property is optional. The default format code is `General`.
 
 Set the primary horizontal and vertical axis options by `x_axis` and `y_axis`.
 

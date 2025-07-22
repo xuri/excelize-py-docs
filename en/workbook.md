@@ -224,7 +224,7 @@ Set worksheet properties. The properties that can be set are:
 Options|Type|Description
 ---|---|---
 code_name                            | `Optional[str]`   | Specifies a stable name of the sheet, which should not change over time, and does not change from user input. This name should be used by code to reference a particular sheet
-enable_format_conditions_calculation | `Optional[bool]`  | Indicating whether the conditional formatting calculations shall be evaluated. If set to false, then the min/max values of color scales or data bars or threshold values in Top N rules shall not be updated. Essentially the conditional formatting "calc" is off
+enable_format_conditions_calculation | `Optional[bool]`  | Indicating whether the conditional formatting calculations shall be evaluated. If set to False, then the min/max values of color scales or data bars or threshold values in Top N rules shall not be updated. Essentially the conditional formatting "calc" is off
 published                            | `Optional[bool]`  | Indicating whether the worksheet is published, the default value is `True`
 auto_page_breaks                     | `Optional[bool]`  | Indicating whether the sheet displays Automatic Page Breaks, the default value is `True`
 fit_to_page                          | `Optional[bool]`  | Indicating whether the Fit to Page print option is enabled, the default value is `False`
@@ -314,7 +314,7 @@ Sets sheet view properties. The `view_index` may be negative and if so is counte
 Options|Type|Description
 ---|---|---
 default_grid_color   | `Optional[bool]`  | Indicating that the consuming application should use the default grid lines color(system dependent). Overrides any color specified in colorId, the default value is `True`
-right_to_left        | `Optional[bool]`  | Indicating whether the sheet is in "right to left" display mode. When in this mode, Column A is on the far right, Column B; is one column left of Column A, and so on. Also, information in cells is displayed in the Right to Left format, the default value is `false`
+right_to_left        | `Optional[bool]`  | Indicating whether the sheet is in "right to left" display mode. When in this mode, Column A is on the far right, Column B; is one column left of Column A, and so on. Also, information in cells is displayed in the Right to Left format, the default value is `False`
 show_formulas        | `Optional[bool]`  | Indicating whether this sheet should display formulas, the default value is `False`
 show_grid_lines      | `Optional[bool]`  | Indicating whether this sheet should display grid lines, the default value is `True`
 show_row_col_headers | `Optional[bool]`  | Indicating whether the sheet should display row and column headings, the default value is `True`
