@@ -115,3 +115,8 @@
   * [Set row style](style.md#SetRowStyle)
   * [Set default font](style.md#SetDefaultFont)
   * [Get default font](style.md#GetDefaultFont)
+* [Streaming write](stream.md)
+  * [Get stream writer](stream.md#NewStreamWriter)
+  * [Write sheet row in stream](stream.md#SetRow)
+  * [Add table in stream](stream.md#AddTable)
+  * [Insert page break in stream](stream.md#InsertPageBreak)
