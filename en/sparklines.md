@@ -24,7 +24,7 @@ try:
             markers=True,
         ),
     )
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 

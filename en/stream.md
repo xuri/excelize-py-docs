@@ -20,7 +20,7 @@ try:
         sw.set_row(cell, row)
     sw.flush()
     f.save_as("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     err = f.close()
@@ -54,7 +54,7 @@ Example 1, create a table of `A1:D5`:
 ```python
 try:
     sw.add_table(excelize.Table(range="A1:D5"))
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -73,7 +73,7 @@ try:
             show_column_stripes=True,
         )
     )
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -114,7 +114,7 @@ Set the width of a single column or multiple columns for the `StreamWriter`. Not
 ```python
 try:
     sw.set_col_width(2, 3, 20)
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 

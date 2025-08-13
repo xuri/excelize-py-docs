@@ -42,7 +42,7 @@ try:
     f.set_active_sheet(index)
     # Save spreadsheet by the given path.
     f.save_as("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     err = f.close()
@@ -59,7 +59,7 @@ import excelize
 
 try:
     f = excelize.open_file("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
     exit()
 try:
@@ -72,7 +72,7 @@ try:
         for cell in row:
             print(f"{cell}\t", end="")
         print()
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     # Close the spreadsheet.
@@ -125,7 +125,7 @@ try:
     f.add_chart("Sheet1", "E1", chart)
     # Save spreadsheet by the given path.
     f.save_as("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     err = f.close()
@@ -140,7 +140,7 @@ import excelize
 
 try:
     f = excelize.open_file("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
     exit()
 try:
@@ -161,7 +161,7 @@ try:
     ))
     # Save the spreadsheet with the origin path.
     f.save()
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     # Close the spreadsheet.

@@ -870,7 +870,7 @@ import excelize
 
 try:
     f = excelize.new_file()
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
     exit()
 try:
@@ -882,7 +882,7 @@ try:
     )
     f.set_cell_style("Sheet1", "A6", "A6", style)
     f.save_as("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     err = f.close()
@@ -913,7 +913,7 @@ For example set style of column `H` on `Sheet1`:
 ```python
 try:
     f.set_col_style("Sheet1", "H", style)
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -922,7 +922,7 @@ Set style of columns `C:F` on `Sheet1`:
 ```python
 try:
     f.set_col_style("Sheet1", "C:F", style)
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -947,7 +947,7 @@ For example set style of row 1 on `Sheet1`:
 ```python
 try:
     f.set_row_style("Sheet1", 1, 1, style_id)
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -956,7 +956,7 @@ Set style of rows 1 to 10 on `Sheet1`:
 ```python
 try:
     f.set_row_style("Sheet1", 1, 10, style_id)
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 

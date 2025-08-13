@@ -242,7 +242,7 @@ try:
         )
     )
     f.set_cell_style("Sheet1", "A3", "A3", style)
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -360,7 +360,7 @@ try:
     )
     f.set_cell_style("Sheet1", "A1", "A1", style)
     f.save_as("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     err = f.close()
@@ -415,7 +415,7 @@ For example, get a hyperlink to a `H6` cell on a worksheet named `Sheet1`:
 ```python
 try:
     link, target = f.get_cell_hyperlink("Sheet1", "H6")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -438,7 +438,7 @@ Merge cells by given range reference and sheet name. Merging cells only keeps th
 ```python
 try:
     f.merge_cell("Sheet1", "D3", "E9")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -457,7 +457,7 @@ UnmergeCell provides a function to unmerge a given range reference. For example 
 ```python
 try:
     f.unmerge_cell("Sheet1", "D3", "E9")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -588,7 +588,7 @@ try:
         excelize.FormulaOpts(type="dataTable")
     )
     f.save_as("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     err = f.close()

@@ -127,13 +127,13 @@ Get worksheets, chart sheets, dialog sheets ID, and name maps of the workbook. F
 ```python
 try:
     f = excelize.open_file("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
     exit()
 try:
     for index, name in f.get_sheet_map().items():
         print(index, name)
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     err = f.close()
@@ -274,7 +274,7 @@ For example, search the cell reference of the value of `100` on `Sheet1`:
 ```python
 try:
     result = f.search_sheet("Sheet1", "100")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -283,7 +283,7 @@ For example, search the cell reference where the numerical value in the range of
 ```python
 try:
     result = f.search_sheet("Sheet1", "[0-9]", True)
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -306,7 +306,7 @@ try:
         select_unlocked_cells=True,
         edit_scenarios=True,
     ))
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 

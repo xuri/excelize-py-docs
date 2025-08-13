@@ -272,7 +272,7 @@ try:
     )
     # Save the spreadsheet by the given path.
     f.save_as("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     err = f.close()

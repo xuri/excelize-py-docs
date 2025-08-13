@@ -17,7 +17,7 @@ import excelize
 
 try:
     f = excelize.new_file()
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
     exit()
 try:
@@ -41,7 +41,7 @@ try:
     ))
     # Save the spreadsheet with the origin path.
     f.save_as("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     # Close the spreadsheet.
@@ -87,7 +87,7 @@ import excelize
 
 try:
     f = excelize.new_file()
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
     exit()
 try:
@@ -102,7 +102,7 @@ try:
             ),
         )
     f.save_as("Book1.xlsx")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 finally:
     err = f.close()

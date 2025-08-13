@@ -55,7 +55,7 @@ This function takes the name of a spreadsheet file and returns a populated sprea
 ```python
 try:
     f = excelize.open_file("Book1.xlsx", excelize.Options(password="password"))
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -134,7 +134,7 @@ try:
     # Sheet1 already exists...
     index = f.new_sheet("Sheet2")
     f.copy_sheet(0, index)
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -209,7 +209,7 @@ Get visible state of the sheet by given sheet name. For example, get the visible
 ```python
 try:
     visible = f.get_sheet_visible("Sheet1")
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -752,7 +752,7 @@ try:
         name="Amount",
         scope="Sheet2",
     ))
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -811,7 +811,7 @@ try:
             version="1.0.0",
         )
     )
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
@@ -829,7 +829,7 @@ try:
         password="password",
         lock_structure=True,
     ))
-except RuntimeError as err:
+except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
