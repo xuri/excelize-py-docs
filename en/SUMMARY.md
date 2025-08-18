@@ -120,3 +120,6 @@
   * [Write sheet row in stream](stream.md#SetRow)
   * [Add table in stream](stream.md#AddTable)
   * [Insert page break in stream](stream.md#InsertPageBreak)
+* [Data](data.md)
+  * [Add slicer](data.md#AddSlicer)
+  * [Delete slicer](data.md#DeleteSlicer)

@@ -9,7 +9,7 @@ Excelize for Python is a Python port of Go [Excelize](https://github.com/xuri/ex
 - PyPI: [pypi.org/project/excelize](https://pypi.org/project/excelize)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Last version: [v0.0.4](https://github.com/xuri/excelize-py/releases/latest)
-- Document update time: July 23, 2025
+- Document update time: August 18, 2025
 
 ## Project mission
 
