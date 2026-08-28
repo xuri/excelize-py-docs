@@ -1,6 +1,6 @@
 <p align="center"><a href="https://xuri.me/excelize-py" target="_blank" alt="Excelize for Python Document"><img width="750" src="https://xuri.me/excelize/images/excelize-doc.png" alt="Docs reference of the excelize of Python library"></a></p>
 
-This is docs reference for the [excelize for Python](https://github.com/xuri/exceliz-py) library. The documentation is built on [GitBook](https://github.com/GitbookIO/gitbook) in the format of Markdown and is welcome to participate in the translation.
+This is docs reference for the [excelize for Python](https://github.com/xuri/excelize-py) library. The documentation is built on [GitBook](https://github.com/GitbookIO/gitbook) in the format of Markdown and is welcome to participate in the translation.
 
 #### Sponsor Excelize Development
 
