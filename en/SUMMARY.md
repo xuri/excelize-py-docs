@@ -127,3 +127,5 @@
   * [Create pivot table](pivot.md#AddPivotTable)
   * [Get pivot tables](pivot.md#GetPivotTables)
   * [Delete pivot table](pivot.md#DeletePivotTable)
+* [Utils](utils.md)
+  * [Remove conditional format](utils.md#UnsetConditionalFormat)
