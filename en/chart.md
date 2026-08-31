@@ -67,6 +67,8 @@ ID|Enumeration|Chart
 52 | WireframeContour            | wireframe contour chart
 53 | Bubble                      | bubble chart
 54 | Bubble3D                    | 3D bubble chart
+55 | StockHighLowClose           | High-Low-Close stock chart
+56 | StockOpenHighLowClose       | Open-High-Low-Close stock chart
 
 In the Office Excel chart data range, `series` specifies the set of information for which data to draw, the legend item (series), and the horizontal (category) axis label.
 
@@ -82,6 +84,7 @@ legend              | This set the font of legend text for a data series. The `l
 line                | This sets the line format of the line chart. The `line` property is optional and if it isn't supplied it will default style. The options that can be set is `width`. The range of `width` is 0.25pt - 999pt. If the value of width is outside the range, the default width of the line is 2pt.
 marker              | This sets the marker of the line chart and scatter chart. The range of the optional field `size` is 2-72 (default value is `5`). The enumeration value of optional field `symbol` are (default value is `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` and `auto`.
 data_label_position | This sets the position of the chart series data label.
+data_point          | This sets the format for individual data points in a doughnut, pie or 3D pie chart series. The `data_point` property is optional.
 
 Set properties of the chart legend. The options that can be set are:
 
@@ -104,7 +107,20 @@ top_right | On top right
 
 The `show_legend_key` parameter set the legend keys shall be shown in data labels. The default value is `False`.
 
-The chart title is set by selecting the `name` parameter of the `title` object, and the title will be displayed above the chart. The parameter `name` supports the use of formula representations, such as `Sheet1!$A$1`, if you do not specify an icon title, the default value is null.
+Set properties of the chart title by `title` field with `ChartTitle` data type. The properties that can be set are:
+
+Parameter|Type|Explanation
+---|---|---
+fill      | `Fill`                        | Set fill color of the chart title. The `fill` property is optional.
+border    | `LineOptions`                 | Set border of the chart title, the properties that can be set are the same as the border object that is used for cell formatting. The `border` property is optional.
+paragraph | `Optional[List[RichTextRun]]` | Set the rich text of the chart title text. The `paragraph` property is optional, and can not be set at the same time with `formula` property.
+font      | `Optional[Font]`              | Set the font properties of the chart title formula text. The `font` property is optional.
+formula   | `str`                         | Set the formula of the chart title text. For example: Sheet1!$A$1. The `formula` property is optional, and can not be set at the same time with `paragraph` property.
+offset_x  | `int`                         | Set the horizontal offset of the chart title. The `offset_x` property is optional. The default value is 0, and the value of `offset_x` must be an integer from 0 to 100.
+offset_y  | `int`                         | Set the vertical offset of the chart title. The `offset_y` property is optional. The default value is 0, and the value of `offset_y` must be an integer from 0 to 100.
+width     | `int`                         | Set the width of the chart title. The `width` property is optional. The default value is 0, and the value of `width` must be an integer from 0 to 100.
+height    | `int`                         | Set the height of the chart title. The `height` property is optional. The default value is 0, and the value of `height` must be an integer from 0 to 100.
+overlay   | `bool`                        | Set the chart title shall be overlaid on the chart. The `overlay` property is optional. The default value is `False`.
 
 The parameter `show_blanks_as` provides the "Hide and empty cells" setting. The default value is: `gap`. In the Excel application "empty cell is displayed as": "space". The following are optional values for this parameter:
 
@@ -124,20 +140,23 @@ Specifies that each data marker in the series has a different color by `vary_col
 
 The parameter `format` provides settings for parameters such as chart offset, scale, aspect ratio settings, and print properties, as well as those used in the [`add_picture`](image.md#AddPicture) function.
 
-Set the position of the chart plot area by plot area. The properties that can be set are:
+Set the properties of the chart plot area by `plot_area` field with `ChartPlotArea` data type. The properties that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-second_plot_values   | `int`         | `0`     | Specifies the values in second plot for the `PieOfPie` and `BarOfPie` chart.
-show_bubble_size     | `bool`        | `False` | Specifies the bubble size shall be shown in a data label.
-show_cat_name        | `bool`        | `True`  | Specifies that the category name shall be shown in the data label. The `show_cat_name` property is optional.
-show_data_table      | `bool`        | `False` | Used for add data table under chart, depending on the chart type, only available for area, bar, column and line series type charts.
-show_data_table_keys | `bool`        | `False` | Used for add legend key in data table, only works on `show_data_table` is enabled. The `show_data_table_keys` property is optional.
-show_leader_lines    | `bool`        | `False` | Specifies that the category name shall be shown in the data label.
-show_percent         | `bool`        | `False` | Specifies that the percentage shall be shown in a data label.
-show_ser_name        | `bool`        | `False` | Specifies that the series name shall be shown in a data label.
-show_val             | `bool`        | `False` | Specifies that the value shall be shown in a data label.
-num_fmt              | `ChartNumFmt` | N/A     | Specifies that if linked to source and set custom number format code for data labels. The `num_fmt` property is optional. The default format code is `General`.
+second_plot_values   | `int`            | `0`     | Specifies the values in second plot for the `PieOfPie` and `BarOfPie` chart.
+show_bubble_size     | `bool`           | `False` | Specifies the bubble size shall be shown in a data label.
+show_cat_name        | `bool`           | `True`  | Specifies that the category name shall be shown in the data label. The `show_cat_name` property is optional.
+show_data_table      | `bool`           | `False` | Used for add data table under chart, depending on the chart type, only available for area, bar, column and line series type charts.
+show_data_table_keys | `bool`           | `False` | Used for add legend key in data table, only works on `show_data_table` is enabled. The `show_data_table_keys` property is optional.
+show_leader_lines    | `bool`           | `False` | Specifies leader lines shall be shown for data labels. The `show_leader_lines` property is optional.
+show_percent         | `bool`           | `False` | Specifies that the percentage shall be shown in a data label.
+show_ser_name        | `bool`           | `False` | Specifies that the series name shall be shown in a data label.
+show_val             | `bool`           | `False` | Specifies that the value shall be shown in a data label.
+fill                 | `Fill`           | N/A     | Set fill color of the chart.
+up_bars              | `ChartUpDownBar` | N/A     | Specifies the format for stock chart up bars. The `up_bars` property is optional.
+down_bars            | `ChartUpDownBar` | N/A     | Specifies the format for stock chart down bars. The `down_bars` property is optional.
+num_fmt              | `ChartNumFmt`    | N/A     | Specifies that if linked to source and set custom number format code for data labels. The `num_fmt` property is optional. The default format code is `General`.
 
 Set the primary horizontal and vertical axis options by `x_axis` and `y_axis`.
 
@@ -145,34 +164,36 @@ The properties of `x_axis` that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-none             | `bool`                        | `False` | Disable axes.
-major_grid_lines | `bool`                        | `False` | Specifies major grid lines.
-minor_grid_lines | `bool`                        | `False` | Specifies minor grid lines.
-tick_label_skip  | `int`                         | `1`     | Specifies how many tick labels to skip between label that is drawn. The `tick_label_skip` property is optional. The default value is auto.
-reverse_order    | `bool`                        | `False` | Specifies that the categories or values in reverse order (orientation of the chart). The `reverse_order` property is optional.
-maximum          | `Optional[float]`             | `0`     | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
-minimum          | `Optional[float]`             | `0`     | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
-alignment        | `Alignment`                   | N/A     | Specifies that the alignment of the horizontal and vertical axis. The properties of font that can be set are: `text_rotation` and `vertical`
-font             | `Font`                        | N/A     | Specifies that the font of the horizontal axis.
-num_fmt          | `ChartNumFmt`                 | N/A     | Specifies that if linked to source and set custom number format code for axis.
-title            | `Optional[List[RichTextRun]]` | N/A     | Specifies that the primary horizontal axis title and resize chart.
+none                | `bool`                       | `False`                                                   | Disable axes.
+drop_lines          | `bool`                       | `False`                                                   | Specifies drop lines for the 2D and 3D area and line charts. Drop lines are vertical lines that connect data points in a chart down to the horizontal (category) axis. They are often used in line or area charts to make it easier to see the exact category position of each point. The `drop_lines` property is optional.
+high_low_lines      | `bool`                       | `False`                                                   | Specifies high low lines for the 2D line chart. High low lines displayed by default in stock charts. They extend from the highest value to the lowest value in each category. The `high_low_lines` property is optional.
+major_grid_lines    | `bool`                       | `False`                                                   | Specifies major grid lines.
+minor_grid_lines    | `bool`                       | `False`                                                   | Specifies minor grid lines.
+tick_label_position | `ChartDataLabelPositionType` | `ChartDataLabelPositionType.ChartDataLabelsPositionUnset` | Specifies how many tick labels to skip between label that is drawn. The `tick_label_skip` property is optional. The default value is auto.
+reverse_order       | `bool`                       | `False`                                                   | Specifies that the categories or values in reverse order (orientation of the chart). The `reverse_order` property is optional.
+maximum             | `Optional[float]`            | `None`                                                    | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
+minimum             | `Optional[float]`            | `None`                                                    | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+alignment           | `Alignment`                  | N/A                                                       | Specifies that the alignment of the horizontal and vertical axis. The properties of font that can be set are: `text_rotation` and `vertical`
+font                | `Font`                       | N/A                                                       | Specifies that the font of the horizontal axis.
+num_fmt             | `ChartNumFmt`                | N/A                                                       | Specifies that if linked to source and set custom number format code for axis.
+title               | `ChartTitle`                 | N/A                                                       | Specifies that the primary horizontal axis title and resize chart.
 
 The properties of `YAxis` that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-none             | `bool`                        | `False` | Disable axes.
-major_grid_lines | `bool`                        | `False` | Specifies major grid lines.
-minor_grid_lines | `bool`                        | `False` | Specifies minor grid lines.
-major_unit       | `float`                       | `0`     | Specifies the distance between major ticks. Shall contain a positive floating-point number. The `MajorUnit` property is optional. The default value is auto.
-reverse_order    | `bool`                        | `False` | Specifies that the categories or values in reverse order (orientation of the chart). The `reverse_order` property is optional.
-maximum          | `Optional[float]`             | `0`     | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
-minimum          | `Optional[float]`             | `0`     | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
-alignment        | `Alignment`                   | N/A     | Specifies that the alignment of the horizontal and vertical axis. The properties of font that can be set are: `text_rotation` and `vertical`
-font             | `Font`                        | N/A     | Specifies that the font of the vertical axis.
-log_base         | `float64`                     | N/A     | Specifies logarithmic scale base number of the vertical axis.
-num_fmt          | `ChartNumFmt`                 | N/A     | Specifies that if linked to source and set custom number format code for axis.
-title            | `Optional[List[RichTextRun]]` | N/A     | Specifies that the primary vertical axis title and resize chart.
+none             | `bool`            | `False` | Disable axes.
+major_grid_lines | `bool`            | `False` | Specifies major grid lines.
+minor_grid_lines | `bool`            | `False` | Specifies minor grid lines.
+major_unit       | `float`           | `0`     | Specifies the distance between major ticks. Shall contain a positive floating-point number. The `MajorUnit` property is optional. The default value is auto.
+reverse_order    | `bool`            | `False` | Specifies that the categories or values in reverse order (orientation of the chart). The `reverse_order` property is optional.
+maximum          | `Optional[float]` | `None`  | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
+minimum          | `Optional[float]` | `None`  | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+alignment        | `Alignment`       | N/A     | Specifies that the alignment of the horizontal and vertical axis. The properties of font that can be set are: `text_rotation` and `vertical`
+font             | `Font`            | N/A     | Specifies that the font of the vertical axis.
+log_base         | `float`           | `0`     | Specifies logarithmic scale base number of the vertical axis.
+num_fmt          | `ChartNumFmt`     | N/A     | Specifies that if linked to source and set custom number format code for axis.
+title            | `ChartTitle`      | N/A     | Specifies that the primary vertical axis title and resize chart.
 
 The value of `text_rotation` that can be set from -90 to 90.
 
@@ -224,11 +245,13 @@ try:
                 lock_aspect_ratio=False,
                 locked=False,
             ),
-            title=[
-                excelize.RichTextRun(
-                    text="Clustered Column - Line Chart",
-                )
-            ],
+            title=excelize.ChartTitle(
+                paragraph=[
+                    excelize.RichTextRun(
+                        text="Clustered Column - Line Chart",
+                    )
+                ],
+            ),
             legend=excelize.ChartLegend(position="left"),
             plot_area=excelize.ChartPlotArea(
                 show_cat_name=False,

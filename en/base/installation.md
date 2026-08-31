@@ -120,7 +120,13 @@ try:
                 values="Sheet1!$B$4:$D$4",
             ),
         ],
-        title=[excelize.RichTextRun(text="Fruit 3D Clustered Column Chart")],
+        title=excelize.ChartTitle(
+            paragraph=[
+                excelize.RichTextRun(
+                    text="Fruit 3D Clustered Column Chart",
+                )
+            ],
+        ),
     )
     f.add_chart("Sheet1", "E1", chart)
     # Save spreadsheet by the given path.
