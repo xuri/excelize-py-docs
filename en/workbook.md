@@ -738,6 +738,23 @@ f.set_defined_name(excelize.DefinedName(
 ))
 ```
 
+## Get defined name {#GetDefinedName}
+
+```python
+def get_defined_name(self) -> List[DefinedName]
+```
+
+Get the defined names of the workbook or worksheet. For example:
+
+```python
+try:
+    names = f.get_defined_name()
+    for dn in names:
+        print(dn.name, dn.refers_to, dn.scope, dn.comment)
+except (RuntimeError, TypeError) as err:
+    print(err)
+```
+
 ## Delete defined name {#DeleteDefinedName}
 
 ```python
