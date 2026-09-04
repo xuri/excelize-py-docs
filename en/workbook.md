@@ -773,6 +773,43 @@ except (RuntimeError, TypeError) as err:
     print(err)
 ```
 
+## Set application properties {#SetAppProps}
+
+```python
+def set_app_props(self, app_properties: AppProperties) -> None
+```
+
+Set document application properties. The properties that can be set are:
+
+Property | Description
+---|---
+application        | The name of the application that created this document.
+scale_crop         | Indicates the display mode of the document thumbnail. Set this element to `True` to enable scaling of the document thumbnail to the display. Set this element to `False` to enable cropping of the document thumbnail to show only sections that will fit the display.
+doc_security       | Security level of a document as a numeric value. Document security is defined as:<br>1 - Document is password protected.<br>2 - Document is recommended to be opened as read-only.<br>3 - Document is enforced to be opened as read-only.<br>4 - Document is locked for annotation.
+company            | The name of a company associated with the document.
+links_up_to_date   | Indicates whether hyperlinks in a document are up-to-date. Set this element to `True` to indicate that hyperlinks are updated. Set this element to `False` to indicate that hyperlinks are outdated.
+hyperlinks_changed | Specifies that one or more hyperlinks in this part were updated exclusively in this part by a producer. The next producer to open this document shall update the hyperlink relationships with the new hyperlinks specified in this part.
+app_version        | Specifies the version of the application which produced this document. The content of this element shall be of the form XX.YYYY where X and Y represent numerical values, or the document shall be considered non-conformant.
+
+For example:
+
+```python
+try:
+    f.set_app_props(
+        excelize.AppProperties(
+            application="Microsoft Excel",
+            scale_crop=True,
+            doc_security=3,
+            company="Company Name",
+            links_up_to_date=True,
+            hyperlinks_changed=True,
+            app_version="16.0000",
+        )
+    )
+except (RuntimeError, TypeError) as err:
+    print(err)
+```
+
 ## Get application properties {#GetAppProps}
 
 ```python

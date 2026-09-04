@@ -37,6 +37,7 @@
   * [Set defined name](workbook.md#SetDefinedName)
   * [Get defined name](workbook.md#GetDefinedName)
   * [Delete defined name](workbook.md#DeleteDefinedName)
+  * [Set application properties](workbook.md#SetAppProps)
   * [Get application properties](workbook.md#GetAppProps)
   * [Set document properties](workbook.md#SetDocProps)
   * [Protect workbook](workbook.md#ProtectWorkbook)

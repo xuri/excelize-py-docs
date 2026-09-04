@@ -35,7 +35,7 @@ class SlicerOptions:
 
 `display_header` specifies if display header of the slicer, this setting is optional, the default setting is display.
 
-`item_desc` specifies descending (Z-A) item sorting, this setting is optional, and the default setting is `false` (represents ascending).
+`item_desc` specifies descending (Z-A) item sorting, this setting is optional, and the default setting is `False` (represents ascending).
 
 `format` specifies the format of the slicer, this setting is optional.
 
